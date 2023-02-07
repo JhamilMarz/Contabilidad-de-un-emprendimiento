@@ -1,0 +1,16 @@
+<div class="col-xs-12 col-sm-12 col-lg-10 col-xl-67 wrapper">
+    <h1 class="titulo">Salteñeria chuqui</h1>
+    <form [formGroup]="form" (ngSubmit)="continuar()">
+        <div class="form-group">
+            <label for="precioUnitario">Ingrese el precio que tendrán cada una de las salteñas.</label>
+            <input type="number" class="form-control" formControlName="precioUnitario" aria-describedby="precioUnitarioAyuda" placeholder="Write yout name.">
+            <small class="form-text text-muted">El precio unitario es un valor requerido para continuar</small>
+        </div>
+        <div class="form-group">
+            <label for="saldoInicial">Ingrese el Saldo inicial con el que comenzará el emprendimiento.</label>
+            <input type="number" class="form-control" formControlName="saldoInicial" aria-describedby="saldoInicialAyuda" placeholder="Write yout name.">
+            <small class="form-text text-muted">El saldo inicial es un valor requerido para continuar</small>
+        </div>
+        <button type="button" class="btn btn-primary" type="button" (click)="continuar()">Continuar</button>
+    </form>
+</div>
