@@ -1,0 +1,78 @@
+<div class="col-xs-12 col-sm-12 col-lg-8 col-xl-8 wrapper">
+    <h1 class="titulo">Detalle facturación</h1>
+    <form [formGroup]="formDetalleFactura">
+        <div class="row">
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                <label for="numeroFactura">Factura nro.</label>
+                <input type="text" class="form-control" formControlName="numeroFactura" [readonly]="true">
+            </div>
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                <label for="fechaFactura">Fecha</label>
+                <input type="date" class="form-control" formControlName="fechaFactura">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-2">
+                <label for="idPersona">Cédula</label>
+                <input type="text" class="form-control" formControlName="idPersona" (focusout)="onFoucusOut()">
+            </div>
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                <label for="nombreCompletoPersona">Nombre cliente</label>
+                <input type="text" class="form-control" formControlName="nombreCompletoPersona">
+            </div>
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-2">
+                <label for="celular">Celular</label>
+                <input type="number" class="form-control" formControlName="celular">
+            </div>
+        </div>
+
+    </form>
+    <h1 class="titulo">Detalle venta</h1>
+    <form [formGroup]="formDetalleVenta">
+        <div class="row">
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-8 col-xl-8">
+                <label for="idProducto">Código</label>
+                <select formControlName="idProducto" id="idProducto" class="form-control" (change)="cambioIdProducto($event.target)">
+                    <option [value]="opcion.clave" *ngFor="let opcion of opcionesIdProducto">{{opcion.valor}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-2">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" class="form-control" formControlName="cantidad" min="0" step="1" (change)="cambioCantidad($event.target)">
+            </div>
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-2">
+                <label for="precioUnitario">Precio (Bs)</label>
+                <input type="number" class="form-control" formControlName="precioUnitario" [readonly]="true">
+            </div>
+            <div class="form-group m-1 col-xs-12 col-sm-12 col-lg-4 col-xl-4">
+                <label for="valorTotal">Valor total (Bs)</label>
+                <input type="number" class="form-control" formControlName="valorTotal" [readonly]="true">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary m-1" (click)="registrarVenta()">Registrar venta</button>
+        <button type="button" class="btn btn-info m-1" [routerLink]="['/inicio']">Regresar a inicio</button>
+    </form>
+</div>
+<hr>
+<div class="col-xs-12 col-sm-12 col-lg-8 col-xl-8 wrapper">
+    <h1 class="titulo">Listado de articulos</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nro.</th>
+                <th scope="col">Código</th>
+                <th scope="col">Artículo</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio (Bs)</th>
+                <th scope="col">Valor total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fila of listaVentas; index as i">
+                <th *ngFor="let columna of obtenerColumna(i)">{{columna}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

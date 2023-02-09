@@ -1,16 +1,17 @@
-<div class="col-xs-12 col-sm-12 col-lg-10 col-xl-67 wrapper">
+<div class="col-xs-12 col-sm-12 col-lg-10 col-xl-6 wrapper">
     <h1 class="titulo">Salteñeria chuqui</h1>
-    <form [formGroup]="form" (ngSubmit)="continuar()">
+    <form [formGroup]="form">
         <div class="form-group">
-            <label for="precioUnitario">Ingrese el precio que tendrán cada una de las salteñas.</label>
-            <input type="number" class="form-control" formControlName="precioUnitario" aria-describedby="precioUnitarioAyuda" placeholder="Write yout name.">
+            <label for="precioUnitario">Ingrese el precio que tendrán cada una de las salteñas (Bs).</label>
+            <input type="number" class="form-control" formControlName="precioUnitario" aria-describedby="precioUnitarioAyuda" placeholder="Ingrese el precio unitario de las salteñas (Bs).">
             <small class="form-text text-muted">El precio unitario es un valor requerido para continuar</small>
         </div>
         <div class="form-group">
-            <label for="saldoInicial">Ingrese el Saldo inicial con el que comenzará el emprendimiento.</label>
-            <input type="number" class="form-control" formControlName="saldoInicial" aria-describedby="saldoInicialAyuda" placeholder="Write yout name.">
+            <label for="saldoInicial">Ingrese el Saldo inicial con el que comenzará el emprendimiento (Bs).</label>
+            <input type="number" class="form-control" formControlName="saldoInicial" aria-describedby="saldoInicialAyuda" placeholder="Ingrese el saldo inicial (Bs).">
             <small class="form-text text-muted">El saldo inicial es un valor requerido para continuar</small>
         </div>
-        <button type="button" class="btn btn-primary" type="button" (click)="continuar()">Continuar</button>
+        <button type="button" class="btn btn-primary m-1" type="button" (click)="controlIngresoGasto()"><i class="uil uil-chart-bar-alt"></i> Control ingreso gasto</button>
+        <button type="button" class="btn btn-info m-1" type="button" (click)="puntoVenta()"><i class="uil uil-pricetag-alt"></i> Punto de venta</button>
     </form>
 </div>

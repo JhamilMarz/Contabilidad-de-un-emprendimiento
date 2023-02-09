@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ControlIngresoGastoComponent } from './control-ingreso-gasto/control-ingreso-gasto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PuntoVentaComponent } from './punto-venta/punto-venta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    ControlIngresoGastoComponent
+    ControlIngresoGastoComponent,
+    PuntoVentaComponent
   ],
   imports: [
     BrowserModule,

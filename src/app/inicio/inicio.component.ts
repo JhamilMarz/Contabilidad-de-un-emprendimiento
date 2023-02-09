@@ -21,21 +21,30 @@ get precioUnitario(): any{
   return this.form.get('precioUnitario')
 }
 
-continuar(){
-
-  //console.log(Number(this.form.value.precioUnitario),Number(this.form.value.saldoInicial))
-  if(typeof this.form.value.precioUnitario ==='number' && typeof this.form.value.saldoInicial ==='number'){
-    
-    this.router.navigate(['/control-ingreso-gasto',Number(this.form.value.precioUnitario),Number(this.form.value.saldoInicial)])
+controlIngresoGasto(){
+  if(!this.validacionFormulario()){
+    return
   }
-  else{
+  this.router.navigate(['/control-ingreso-gasto',this.form.value.precioUnitario,this.form.value.saldoInicial])
+}
 
+puntoVenta(){
+  if(!this.validacionFormulario()){
+    return
+  }
+  this.router.navigate(['/punto-venta',this.form.value.precioUnitario,this.form.value.saldoInicial])
+}
+
+validacionFormulario(){
+  if(!(typeof this.form.value.precioUnitario ==='number' && typeof this.form.value.saldoInicial ==='number')){
     MensajeService.monstrarMensaje({
 			Tipo: 'error',
 			Titulo: 'Operación fallida',
 			Contenido: 'El precio unitario de la salteña y el saldo inicial debe un valor numérico.',
 			confirmButtonText: 'Aceptar',
 		})
+    return false
   }
+  return true
 }
 }

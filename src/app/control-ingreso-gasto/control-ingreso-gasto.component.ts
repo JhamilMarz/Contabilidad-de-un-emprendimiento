@@ -43,7 +43,7 @@ saldoTotal:number | null
   valuesRow:any[]=[]
   indice=0
   obtenerColumna(indice:number){
-    this.indice=indice
+    this.indice=indice+1
     return Object.values(this.listaIngresos[indice])
   }
 
