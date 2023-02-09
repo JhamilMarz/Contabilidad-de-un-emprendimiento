@@ -56,19 +56,19 @@ saldoTotal:number | null
     if(this.detalleCuentas.find(x=> x.idCuenta== this.formMovimiento.value.idCuenta)?.tipo=='Credito'){
       if(typeof this.saldoInicial==='string' && typeof this.formMovimiento.value.valorContable ==='number' && typeof this.saldoTotal ==='number')
       {
-        this.saldoTotal=+this.saldoTotal-this.formMovimiento.value.valorContable
+        this.saldoTotal=+this.saldoTotal+this.formMovimiento.value.valorContable
       }
       this.listaIngresos.push({'nro':this.indice,
       'cuenta':this.formMovimiento.value.idCuenta,
       'descripcion':this.formMovimiento.value.descripcion,
       'ingresos':this.formMovimiento.value.valorContable,
-      'egresos':'',
+      'egresos':'0',
       'saldo':this.saldoTotal})
     }
     else{
       if(typeof this.saldoInicial==='string' && typeof this.formMovimiento.value.valorContable ==='number' && typeof this.saldoTotal ==='number')
       {
-        this.saldoTotal=+this.saldoTotal+this.formMovimiento.value.valorContable
+        this.saldoTotal=+this.saldoTotal-this.formMovimiento.value.valorContable
       }
       this.listaIngresos.push({'nro':this.indice,
       'cuenta':this.formMovimiento.value.idCuenta,
